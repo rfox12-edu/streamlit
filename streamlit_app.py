@@ -13,6 +13,7 @@ st.bar_chart(df, x="Category", y="Sales")
 st.dataframe(df.groupby("Category").sum())
 st.bar_chart(df.groupby("Category", as_index=False).sum(), x="Category", y="Sales", color="#04f")
 
+df.set_index('Order_Date', inplace=True)
 st.dataframe(df.filter(items=['Order_Date', 'Sales']).groupby(pd.Grouper(key='Order_Date', freq='M')))
 
 st.write("### Input Data 2")
