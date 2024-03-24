@@ -6,7 +6,7 @@ import math
 st.title("Data App Assignment")
 
 st.write("### Input Data")
-df = pd.read_csv("Superstore_Sales_utf8.csv")
+df = pd.read_csv("Superstore_Sales_utf8.csv", parse_dates=True)
 st.dataframe(df)
 
 st.bar_chart(df, x="Category", y="Sales")
