@@ -15,9 +15,10 @@ st.bar_chart(df.groupby("Category", as_index=False).sum(), x="Category", y="Sale
 
 df["Order_Date"] = pd.to_datetime(df["Order_Date"])
 df.set_index('Order_Date', inplace=True)
-st.dataframe(df.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum())
+sales_by_month = df.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
+st.dataframe(sales_by_month)
 
-st.line_chart(df, y="Sales")
+st.line_chart(sales_by_month, y="Sales")
 
 st.write("### Input Data 2")
 col1, col2 = st.columns(2)
