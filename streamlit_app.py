@@ -3,11 +3,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import math
 
-st.title("Mortgage Repayments Calculator")
+st.title("Data App Assignment")
 
 st.write("### Input Data")
 df = pd.read_csv("Superstore_Sales_utf8.csv")
 st.dataframe(df)
+
+st.bar_chart(df, x="Category", y="Sales")
+st.bar_chart(df, x="Category", y="Sales", color="Profit")
 
 st.write("### Input Data 2")
 col1, col2 = st.columns(2)
