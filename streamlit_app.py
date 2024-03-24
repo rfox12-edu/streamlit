@@ -17,6 +17,8 @@ df["Order_Date"] = pd.to_datetime(df["Order_Date"])
 df.set_index('Order_Date', inplace=True)
 st.dataframe(df.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum())
 
+st.line_chart(df, y="Sales")
+
 st.write("### Input Data 2")
 col1, col2 = st.columns(2)
 home_value = col1.number_input("Home Value", min_value=0, value=500000)
