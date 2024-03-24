@@ -10,7 +10,7 @@ df = pd.read_csv("Superstore_Sales_utf8.csv")
 st.dataframe(df)
 
 st.bar_chart(df, x="Category", y="Sales")
-st.bar_chart(df, x="Category", y="Sales", color="#04f")
+st.bar_chart(df.groupby("Category").sum(), x="Category", y="Sales", color="#04f")
 
 st.write("### Input Data 2")
 col1, col2 = st.columns(2)
