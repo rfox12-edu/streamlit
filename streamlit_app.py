@@ -6,7 +6,7 @@ import math
 st.title("Mortgage Repayments Calculator")
 
 st.write("### Input Data")
-df = pd.read_csv("Superstore_Sales.csv",  encoding="utf-16", on_bad_lines="skip")
+df = pd.read_csv("Superstore_Sales.csv",  encoding="utf-16-le", on_bad_lines="skip")
 st.dataframe(df)
 
 st.write("### Input Data 2")
