@@ -42,6 +42,10 @@ selected_sub_categories = st.multiselect('Select Sub-Categories', sub_categories
 # Filter the dataframe based on selected sub-categories
 filtered_df = df[df['Sub-Category'].isin(selected_sub_categories)]
 
+# Display selected category and sub-categories for validation
+st.write(f"Selected Category: {selected_category}")
+st.write(f"Selected Sub-Categories: {selected_sub_categories}")
+
 # (3) Show a line chart of sales for the selected items in (2)
 if not filtered_df.empty:
     filtered_df = filtered_df.copy()  # Avoid SettingWithCopyWarning
@@ -64,4 +68,3 @@ if not filtered_df.empty:
     delta_margin = overall_profit_margin - overall_avg_profit_margin
 
     st.metric("Overall Profit Margin (%)", f"{overall_profit_margin:.2f}%", delta=f"{delta_margin:.2f}%")
-
