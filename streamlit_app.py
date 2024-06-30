@@ -44,6 +44,7 @@ filtered_df = df[df['Sub-Category'].isin(selected_sub_categories)]
 
 # (3) Show a line chart of sales for the selected items in (2)
 if not filtered_df.empty:
+    filtered_df = filtered_df.copy()  # Avoid SettingWithCopyWarning
     filtered_df.set_index('Order_Date', inplace=True)
     sales_by_month_filtered = filtered_df.groupby(pd.Grouper(freq='M')).sum()['Sales']
     st.line_chart(sales_by_month_filtered, y="Sales")
@@ -63,3 +64,4 @@ if not filtered_df.empty:
     delta_margin = overall_profit_margin - overall_avg_profit_margin
 
     st.metric("Overall Profit Margin (%)", f"{overall_profit_margin:.2f}%", delta=f"{delta_margin:.2f}%")
+
